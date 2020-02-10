@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import {Droppable} from 'react-beautiful-dnd'
-import Task from '../Task'
+import Elem from '../Elem'
 
 const Container = styled.div`
   margin: 8px;
@@ -18,7 +18,7 @@ const Title = styled.h3`
   text-align: right;
   width: 100px;
 `;
-const Tasklist = styled.div`
+const Elemlist = styled.div`
   padding: 8px;
   transition: background-color 0.2 ease;
   background-color:${props => (props.isDraggingOver ? 'lightgrey' : 'white')};
@@ -29,32 +29,32 @@ const Tasklist = styled.div`
 
 class InnerList extends Component {
   shouldComponentUpdate(nextProps){
-    if (nextProps.tasks === this.props.tasks) return false;
+    if (nextProps.elems === this.props.elems) return false;
     return true;
   }
   render(){
-    return this.props.tasks.map( (task,index) => <Task key={task.id} task={task} index={index}/>);
+    return this.props.elems.map( (elem,index) => <Elem key={elem.id} elem={elem} index={index}/>);
   }
 }
 
-class Column extends Component {
+class RowColMark extends Component {
   render(){
     return(
       <Container>
-        <TitleContainer><Title>{this.props.column.title}</Title></TitleContainer>
-        <Droppable droppableId={this.props.column.id} direction='horizontal'>
+        <TitleContainer><Title>{this.props.rowColMark.title}</Title></TitleContainer>
+        <Droppable droppableId={this.props.rowColMark.id} direction='horizontal'>
           {(provided,snapshot) =>
-            <Tasklist
+            <Elemlist
             ref={provided.innerRef}
             {...provided.droppableProps}
             isDraggingOver={snapshot.isDraggingOver}>
-              <InnerList tasks={this.props.tasks}/>
+              <InnerList elems={this.props.elems}/>
               {provided.placeholder}
-            </Tasklist>}
+            </Elemlist>}
         </Droppable>
       </Container>
     );
   }
 }
 
-export default Column;
+export default RowColMark;

@@ -1,29 +1,29 @@
 const initialData = {
-  tasks: {
-    'task-1': { id:'task-1', content:'take out the garbage' },
-    'task-2': { id:'task-2', content:'watch show' },
-    'task-3': { id:'task-3', content:'clean toilet' },
-    'task-4': { id:'task-4', content:'make food' }
+  elems: {
+    'elem-1': { id:'elem-1', content:'take out the garbage' },
+    'elem-2': { id:'elem-2', content:'watch show' },
+    'elem-3': { id:'elem-3', content:'clean toilet' },
+    'elem-4': { id:'elem-4', content:'make food' }
   },
-  columns: {
-    'column-1': {
-      id:'column-1',
+  rowColMarks: {
+    'rowColMark-1': {
+      id:'rowColMark-1',
       title:'Row',
-      taskIds:['task-1', 'task-2', 'task-3', 'task-4']
+      elemIds:['elem-1', 'elem-2', 'elem-3', 'elem-4']
     },
-    'column-2': {
-      id:'column-2',
+    'rowColMark-2': {
+      id:'rowColMark-2',
       title:'Column',
-      taskIds:[]
+      elemIds:[]
     },
-    'column-3': {
-      id:'column-3',
+    'rowColMark-3': {
+      id:'rowColMark-3',
       title:'Mark',
-      taskIds:[]
+      elemIds:[]
     },
   },
-  //facilitate reordering of columns
-  columnOrder: ['column-1','column-2','column-3']
+  //facilitate reordering of rowColMarks
+  rowColMarkOrder: ['rowColMark-1','rowColMark-2','rowColMark-3']
 }
 
 export default initialData;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {DragDropContext} from 'react-beautiful-dnd'
 import initialData from './initial-data.js'
-import Column from './Column'
+import RowColMark from './RowColMark'
 
 class WorksheetController extends Component {
   state = initialData;
@@ -13,24 +13,24 @@ class WorksheetController extends Component {
 
     if (destination.droppableId === source.droppableId && destination.index === source.index) return; //check if the location of the draggable changed
 
-    const start = this.state.columns[source.droppableId];
-    const finish = this.state.columns[destination.droppableId];
+    const start = this.state.rowColMarks[source.droppableId];
+    const finish = this.state.rowColMarks[destination.droppableId];
 
     if (start === finish){
-      const newTaskIds = Array.from(start.taskIds);
-      newTaskIds.splice(source.index,1); //remove the task at source from newTaskIds
-      newTaskIds.splice(destination.index,0,draggableId);
+      const newElemIds = Array.from(start.elemIds);
+      newElemIds.splice(source.index,1); //remove the elem at source from newElemIds
+      newElemIds.splice(destination.index,0,draggableId);
 
-      const newColumn = {
+      const newRowColMark = {
         ...start,
-        taskIds: newTaskIds
+        elemIds: newElemIds
       }
 
       const newState = {
         ...this.state,
-        columns: {
-          ...this.state.columns,
-          [newColumn.id]: newColumn,
+        rowColMarks: {
+          ...this.state.rowColMarks,
+          [newRowColMark.id]: newRowColMark,
         }
       }
 
@@ -38,28 +38,28 @@ class WorksheetController extends Component {
       return;
     }
 
-    const startTaskIds = Array.from(start.taskIds);
-    const finishTaskIds = Array.from(finish.taskIds)
-    //splice from the start column.
-    startTaskIds.splice(source.index,1);
-    //place into the finish column
-    finishTaskIds.splice(destination.index,0,draggableId);
-    //add both columns to the newState
-    const newStartColumn = {
+    const startElemIds = Array.from(start.elemIds);
+    const finishElemIds = Array.from(finish.elemIds)
+    //splice from the start rowColMark.
+    startElemIds.splice(source.index,1);
+    //place into the finish rowColMark
+    finishElemIds.splice(destination.index,0,draggableId);
+    //add both rowColMarks to the newState
+    const newStartRowColMark = {
       ...start,
-      taskIds: startTaskIds
+      elemIds: startElemIds
     }
-    const newFinishColumn = {
+    const newFinishRowColMark = {
       ...finish,
-      taskIds: finishTaskIds
+      elemIds: finishElemIds
     }
     //setState
     const newState = {
       ...this.state,
-      columns: {
-        ...this.state.columns,
-        [newStartColumn.id]: newStartColumn,
-        [newFinishColumn.id]: newFinishColumn
+      rowColMarks: {
+        ...this.state.rowColMarks,
+        [newStartRowColMark.id]: newStartRowColMark,
+        [newFinishRowColMark.id]: newFinishRowColMark
       }
     }
     this.setState(newState);
@@ -68,10 +68,10 @@ class WorksheetController extends Component {
   render(){
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        {this.state.columnOrder.map( columnId => {
-        const column = this.state.columns[columnId];
-        const tasks = column.taskIds.map(taskId=>this.state.tasks[taskId]);
-        return <Column key={column.id} column={column} tasks={tasks} />
+        {this.state.rowColMarkOrder.map( rowColMarkId => {
+        const rowColMark = this.state.rowColMarks[rowColMarkId];
+        const elems = rowColMark.elemIds.map(elemId=>this.state.elems[elemId]);
+        return <RowColMark key={rowColMark.id} rowColMark={rowColMark} elems={elems} />
         })}
       </DragDropContext>
     );

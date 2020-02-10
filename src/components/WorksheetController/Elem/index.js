@@ -21,21 +21,21 @@ const Handle = styled.div`
   margin-right: 8px;
 `;
 
-class Task extends Component {
+class Elem extends Component {
   render(){
     return(
-      <Draggable draggableId={this.props.task.id} index={this.props.index}>
+      <Draggable draggableId={this.props.elem.id} index={this.props.index}>
         {(provided,snapshot) =>
           <Container
           {...provided.draggableProps}
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}>
             <Handle {...provided.dragHandleProps} />
-            {this.props.task.content}
+            {this.props.elem.content}
           </Container>}
       </Draggable>
     );
   }
 }
 
-export default Task;
+export default Elem;
