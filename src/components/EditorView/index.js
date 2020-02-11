@@ -6,7 +6,7 @@ import initialData from '../../initial-data'
 
 /*
  The EditorView is shown when the user enters a Workspace.
- The Editor queries info related to the Workspace and passes it down to components.
+ The Editor has access to all data related to the Workspace and passes it down to components.
 */
 
 const Container = styled.div`
@@ -29,7 +29,7 @@ const WorksheetContainer = styled.div`
   background-color: #ffffff;
 `;
 
-const data = initialData;
+const data = initialData; // this is a rapid prototype: no connection to database
 
 function EditorView(){
   return(
