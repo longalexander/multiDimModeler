@@ -4,7 +4,7 @@ import {Droppable} from 'react-beautiful-dnd'
 import Elem from '../Elem'
 
 const Container = styled.div`
-  margin: 8px;
+  margin: 0px;
   border: 1px solid lightgrey;
   border-radius: 2px;
   display:flex;
@@ -13,17 +13,18 @@ const Container = styled.div`
 const TitleContainer = styled.div`
 `;
 
-const Title = styled.h3`
+const Title = styled.h6`
   padding: 8px;
   text-align: right;
-  width: 100px;
+  color: #828282;
+  width: 50px;
 `;
 const Elemlist = styled.div`
   padding: 8px;
   transition: background-color 0.2 ease;
   background-color:${props => (props.isDraggingOver ? 'lightgrey' : 'white')};
   display: flex;
-  height: 50px;
+  height: 20px;
   width: 100%;
 `;
 

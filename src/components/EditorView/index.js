@@ -10,7 +10,7 @@ import Worksheet from './Worksheet'
 
 const Container = styled.div`
   display: flex;
-  background-color: #fafafa;
+  background-color: #f2f2f2;
 `;
 
 const SidebarContainer = styled.div`
@@ -24,9 +24,8 @@ const SidebarContainer = styled.div`
 const WorksheetContainer = styled.div`
   height: 93vh;
   width: 45%;
-  background-color: #ffffff;
-  color: #333333;
   padding: 14px;
+  background-color: #ffffff;
 `;
 
 function EditorView(){

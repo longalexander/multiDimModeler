@@ -5,7 +5,9 @@ import WorksheetController from './WorksheetController'
 import WorksheetTableView from './WorksheetTableView'
 import WorksheetFormulaView from './WorksheetFormulaView'
 
-const Container = styled.div``;
+const Container = styled.div`
+  color: #333333;
+`;
 
 function Worksheet(){
   return(
