@@ -4,7 +4,7 @@ import {DragDropContext} from 'react-beautiful-dnd'
 import initialData from './initial-data.js'
 import RowColMark from './RowColMark'
 
-class WorksheetController extends Component {
+class WorksheetControllerRCM extends Component {
   state = initialData;
   onDragEnd = result =>{
     const { destination, source, draggableId } = result;
@@ -78,4 +78,4 @@ class WorksheetController extends Component {
   }
 }
 
-export default WorksheetController;
+export default WorksheetControllerRCM;

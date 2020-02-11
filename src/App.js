@@ -1,11 +1,13 @@
 import React from 'react';
 import '@atlaskit/css-reset'
-import WorksheetController from './components/WorksheetController'
+import Header from './components/Header'
+import EditorView from './components/EditorView'
 
 function App() {
   return (
     <div className="App">
-      <WorksheetController />
+      <Header />
+      <EditorView />
     </div>
   );
 }
