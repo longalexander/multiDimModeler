@@ -5,6 +5,7 @@ import WorksheetControllerRCM from './WorksheetControllerRCM'
 
 const Container = styled.div`
   display: flex;
+  margin-bottom: 20px;
 `;
 
 const ViewSelectorContainer = styled.div``;
