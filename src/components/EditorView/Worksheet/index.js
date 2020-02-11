@@ -9,11 +9,11 @@ const Container = styled.div`
   color: #333333;
 `;
 
-function Worksheet(){
+function Worksheet(props){
   return(
     <Container>
       <WorksheetHeader />
-      <WorksheetController />
+      <WorksheetController data={props.data}/>
       <WorksheetTableView />
       <WorksheetFormulaView />
     </Container>

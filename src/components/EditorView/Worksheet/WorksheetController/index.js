@@ -11,11 +11,11 @@ const Container = styled.div`
 const ViewSelectorContainer = styled.div``;
 const RCMContainer = styled.div``;
 
-function WorksheetController(){
+function WorksheetController(props){
   return(
     <Container>
       <ViewSelectorContainer><WorksheetViewSelector /></ViewSelectorContainer>
-      <RCMContainer><WorksheetControllerRCM /></RCMContainer>
+      <RCMContainer><WorksheetControllerRCM data={props.data}/></RCMContainer>
     </Container>
   );
 }

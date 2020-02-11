@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Sidebar from './Sidebar'
 import Worksheet from './Worksheet'
+import initialData from '../../initial-data'
 
 /*
  The EditorView is shown when the user enters a Workspace.
@@ -28,11 +29,13 @@ const WorksheetContainer = styled.div`
   background-color: #ffffff;
 `;
 
+const data = initialData;
+
 function EditorView(){
   return(
     <Container>
       <SidebarContainer><Sidebar /></SidebarContainer>
-      <WorksheetContainer><Worksheet /></WorksheetContainer>
+      <WorksheetContainer><Worksheet data={data}/></WorksheetContainer>
     </Container>
   );
 }

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {DragDropContext} from 'react-beautiful-dnd'
-import initialData from './initial-data.js'
 import RowColMark from './RowColMark'
 
 class WorksheetControllerRCM extends Component {
-  state = initialData;
+  state = this.props.data;
   onDragEnd = result =>{
     const { destination, source, draggableId } = result;
 
