@@ -1,3 +1,5 @@
+//currently being used to test the drag and drop feature
+
 const initialData = {
   dims: {
     'dim-1': { id:'dim-1', content:'year' },
