@@ -1,31 +1,25 @@
 //currently being used to test the drag and drop feature
 
 const initialData = {
-  elems: {
-    'elem-1': { id:'elem-1', content:'take out the garbage' },
-    'elem-2': { id:'elem-2', content:'watch show' },
-    'elem-3': { id:'elem-3', content:'clean toilet' },
-    'elem-4': { id:'elem-4', content:'make food' }
+  dims: {
+    'dim-1': { id:'dim-1', content:'year' },
+    'dim-2': { id:'dim-2', content:'quarter' },
+    'dim-3': { id:'dim-3', content:'state' },
   },
-  rowColMarks: {
-    'rowColMark-1': {
-      id:'rowColMark-1',
+  axis: {
+    'axis-1': {
+      id:'axis-1',
       title:'Row',
-      elemIds:['elem-1', 'elem-2', 'elem-3', 'elem-4']
+      dimIds:['dim-1', 'dim-2', 'dim-3']
     },
-    'rowColMark-2': {
-      id:'rowColMark-2',
+    'axis-2': {
+      id:'axis-2',
       title:'Column',
-      elemIds:[]
-    },
-    'rowColMark-3': {
-      id:'rowColMark-3',
-      title:'Mark',
-      elemIds:[]
+      dimIds:[]
     },
   },
   //facilitate reordering of rowColMarks
-  rowColMarkOrder: ['rowColMark-1','rowColMark-2','rowColMark-3']
+  axisOrder: ['axis-1','axis-2']
 }
 
 export default initialData;
