@@ -27,21 +27,21 @@ const Handle = styled.div`
 `;
 
 
-class Elem extends Component {
+class Dim extends Component {
   render(){
     return(
-      <Draggable draggableId={this.props.elem.id} index={this.props.index}>
+      <Draggable draggableId={this.props.dim.id} index={this.props.index}>
         {(provided,snapshot) =>
           <Container
           {...provided.draggableProps}
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}>
             <Handle {...provided.dragHandleProps} />
-            {this.props.elem.content}
+            {this.props.dim.content}
           </Container>}
       </Draggable>
     );
   }
 }
 
-export default Elem;
+export default Dim;
