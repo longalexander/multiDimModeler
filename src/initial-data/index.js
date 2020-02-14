@@ -1,3 +1,5 @@
+//currently being used to test the drag and drop feature
+
 const initialData = {
   elems: {
     'elem-1': { id:'elem-1', content:'take out the garbage' },
