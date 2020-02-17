@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {DragDropContext} from 'react-beautiful-dnd'
 import Axis from './Axis'
 import Mark from './Mark'
