@@ -10,12 +10,13 @@ import initialData from '../../initial-data'
 */
 
 const Container = styled.div`
+  height: 90vh;
   display: flex;
   background-color: #f2f2f2;
 `;
 
 const SidebarContainer = styled.div`
-  height: 93vh;
+  height: 100%;
   width: 10%;
   background-color: #828282;
   color: #fff;
@@ -23,7 +24,7 @@ const SidebarContainer = styled.div`
 `;
 
 const WorksheetContainer = styled.div`
-  height: 93vh;
+  height: 100%;
   width: 45%;
   padding: 14px;
   background-color: #ffffff;
