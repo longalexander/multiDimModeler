@@ -8,9 +8,10 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   background-color: 'black';
-  width: 20px;
-  height: 20px;
-
+  align-items: center;
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
 `;
 
 function AddCircleButton(props){
