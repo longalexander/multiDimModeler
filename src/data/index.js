@@ -1,13 +1,11 @@
 const data = {
   marks: {},
-  dims: {
-    'dim-1': { id:'dim-1', title:'year' },
-  },
+  dims: {},
   axis: {
     'axis-1': {
       id:'axis-1',
       title:'Row',
-      dimIds:['dim-1']
+      dimIds:[]
     },
     'axis-2': {
       id:'axis-2',
