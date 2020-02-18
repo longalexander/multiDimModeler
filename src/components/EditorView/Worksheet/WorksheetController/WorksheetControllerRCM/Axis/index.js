@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import {Droppable} from 'react-beautiful-dnd'
 import Dim from '../Dim'
+import AddCircleButton from '../../../../../General/Button/AddCircleButton'
+import DimensionObject from '../../../../../../DataClasses/DimensionObject'
 
 const Container = styled.div`
   margin: 0px;
@@ -40,7 +42,17 @@ class InnerList extends Component {
 }
 
 class Axis extends Component {
+  constructor(props){
+    super(props);
+    this.addDim = this.addDim.bind(this);
+  }
+  addDim(){
+    //alert either "Row" or "Column"
+    
+    return;
+  }
   render(){
+    console.log("this.props", this.props)
     return(
       <Container>
         <TitleContainer><Title>{this.props.axis.title}</Title></TitleContainer>
@@ -54,6 +66,7 @@ class Axis extends Component {
               {provided.placeholder}
             </Dimlist>}
         </Droppable>
+        <AddCircleButton clickFn={this.addDim}/>
       </Container>
     );
   }
