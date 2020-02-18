@@ -28,7 +28,6 @@ const Dimlist = styled.div`
   background-color:${props => (props.isDraggingOver ? 'lightgrey' : 'white')};
   display: flex;
   height: 20px;
-  width: 100%;
 `;
 
 class InnerList extends Component {
@@ -48,7 +47,7 @@ class Axis extends Component {
   }
   addDim(){
     //alert either "Row" or "Column"
-    
+
     return;
   }
   render(){
