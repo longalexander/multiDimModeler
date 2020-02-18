@@ -15,7 +15,7 @@ class WorksheetControllerRCM extends Component {
     const start = this.state.axis[source.droppableId];
     const finish = this.state.axis[destination.droppableId];
 
-    if (start === finish){
+    if (start === finish){ // same axis
       const newDimIds = Array.from(start.dimIds);
       newDimIds.splice(source.index,1); //remove the dims at source from newDimIds
       newDimIds.splice(destination.index,0,draggableId);
@@ -34,9 +34,12 @@ class WorksheetControllerRCM extends Component {
       }
 
       this.setState(newState);
+      //save to fake database
+      this.props.updateData('axis', newAxis.id, 'dimIds', newDimIds)
       return;
     }
 
+    //otherwise, we are dropping from one axis into another axis
     const startDimIds = Array.from(start.dimIds);
     const finishDimIds = Array.from(finish.dimIds)
     //splice from the start axis.
@@ -63,6 +66,9 @@ class WorksheetControllerRCM extends Component {
     }
     this.setState(newState);
 
+    //save to Fake database
+    this.props.updateData('axis', newStartAxis.id, 'dimIds', startDimIds)
+    this.props.updateData('axis', newFinishAxis.id, 'dimIds', finishDimIds)
   }
   render(){
     return (
