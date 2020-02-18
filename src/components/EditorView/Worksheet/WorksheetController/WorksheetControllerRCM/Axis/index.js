@@ -4,6 +4,7 @@ import {Droppable} from 'react-beautiful-dnd'
 import Dim from '../Dim'
 import AddCircleButton from '../../../../../General/Button/AddCircleButton'
 import DimensionObject from '../../../../../../DataClasses/DimensionObject'
+import data from '../../../../../../data'
 
 const Container = styled.div`
   margin: 0px;
@@ -45,13 +46,35 @@ class Axis extends Component {
     super(props);
     this.addDim = this.addDim.bind(this);
   }
+  getRandomID = (length)=>{
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  generateDimId = ()=>{
+    let milliseconds = Date.now();
+    let seconds = Math.floor(milliseconds/1000);
+    let randomSixteen = this.getRandomID(16);
+    let returnVal = 'DIM'+JSON.stringify(seconds) + randomSixteen;
+    return returnVal;
+  }
   addDim(){
-    //alert either "Row" or "Column"
-
+    let axis_id = this.props.axis.id;
+    let dim_id = this.generateDimId();
+    let title = 'new dim'
+    let item = [null];
+    let parent = [null];
+    let child = [null];
+    let newDim = new DimensionObject(dim_id, title, item, parent, child); //id, title, item, parent, child
+    this.props.createData('dims', dim_id, newDim)
+    this.props.addToAxis(axis_id, dim_id);
     return;
   }
   render(){
-    console.log("this.props", this.props)
     return(
       <Container>
         <TitleContainer><Title>{this.props.axis.title}</Title></TitleContainer>

@@ -13,7 +13,7 @@ function Worksheet(props){
   return(
     <Container>
       <WorksheetHeader />
-      <WorksheetController data={props.data}/>
+      <WorksheetController data={props.data} createData={props.createData} addToAxis={props.addToAxis}/>
       <WorksheetTableView />
       <WorksheetFormulaView />
     </Container>

@@ -15,7 +15,7 @@ function WorksheetController(props){
   return(
     <Container>
       <ViewSelectorContainer><WorksheetViewSelector /></ViewSelectorContainer>
-      <RCMContainer><WorksheetControllerRCM data={props.data}/></RCMContainer>
+      <RCMContainer><WorksheetControllerRCM data={props.data} createData={props.createData} addToAxis={props.addToAxis}/></RCMContainer>
     </Container>
   );
 }
