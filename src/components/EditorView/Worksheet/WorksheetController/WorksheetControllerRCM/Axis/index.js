@@ -4,7 +4,6 @@ import {Droppable} from 'react-beautiful-dnd'
 import Dim from '../Dim'
 import AddCircleButton from '../../../../../General/Button/AddCircleButton'
 import DimensionObject from '../../../../../../DataClasses/DimensionObject'
-import data from '../../../../../../data'
 
 const Container = styled.div`
   margin: 0px;
@@ -37,7 +36,8 @@ class InnerList extends Component {
     return true;
   }
   render(){
-    return this.props.dims.map( (dim,index) => <Dim key={dim.id} dim={dim} index={index}/>);
+    console.log('PROPS: ', this.props)
+    return this.props.dims.map( (dim,index) => <Dim key={dim.id} dim={dim} index={index} updateData={this.props.updateData}/>);
   }
 }
 
@@ -65,7 +65,7 @@ class Axis extends Component {
   addDim(){
     let axis_id = this.props.axis.id;
     let dim_id = this.generateDimId();
-    let title = 'new dim'
+    let title = 'Type here'
     let item = [null];
     let parent = [null];
     let child = [null];
@@ -84,7 +84,7 @@ class Axis extends Component {
             ref={provided.innerRef}
             {...provided.droppableProps}
             isDraggingOver={snapshot.isDraggingOver}>
-              <InnerList dims={this.props.dims}/>
+              <InnerList dims={this.props.dims} updateData={this.props.updateData}/>
               {provided.placeholder}
             </Dimlist>}
         </Droppable>

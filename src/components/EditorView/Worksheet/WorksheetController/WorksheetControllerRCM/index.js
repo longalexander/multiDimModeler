@@ -71,7 +71,7 @@ class WorksheetControllerRCM extends Component {
           {this.state.axisOrder.map( axisId => {
           const axis = this.state.axis[axisId];
           const dims = axis.dimIds.map(dimId=>this.state.dims[dimId]);
-          return <Axis key={axis.id} axis={axis} dims={dims} createData={this.props.createData} addToAxis={this.props.addToAxis}/>
+          return <Axis key={axis.id} axis={axis} dims={dims} createData={this.props.createData} updateData={this.props.updateData} addToAxis={this.props.addToAxis}/>
           })}
         </DragDropContext>
         <Mark />

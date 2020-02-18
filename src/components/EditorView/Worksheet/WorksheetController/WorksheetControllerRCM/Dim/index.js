@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Draggable} from 'react-beautiful-dnd'
 import styled from 'styled-components';
+import DimTitleInput from './DimTitleInput'
 
 const Container = styled.div`
   border: 1px solid lightgrey;
@@ -12,7 +13,6 @@ const Container = styled.div`
   margin-right: 16px;
   font-size: 10px;
   height: 18px;
-  width: 100%;
   padding-left: 8px;
   padding-right: 8px;
   align-items: center;
@@ -26,7 +26,6 @@ const Handle = styled.div`
   margin-right: 8px;
 `;
 
-
 class Dim extends Component {
   render(){
     return(
@@ -37,7 +36,7 @@ class Dim extends Component {
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}>
             <Handle {...provided.dragHandleProps} />
-            {this.props.dim.title}
+            <DimTitleInput title={this.props.dim.title} id={this.props.dim.id} updateData={this.props.updateData}/>
           </Container>}
       </Draggable>
     );
