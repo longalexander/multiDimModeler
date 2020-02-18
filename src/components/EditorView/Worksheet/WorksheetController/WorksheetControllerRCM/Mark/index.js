@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import AddCircleButton from '../../../../../General/Button/AddCircleButton'
 
 const Container = styled.div`
   margin: 0px;
@@ -9,6 +10,10 @@ const Container = styled.div`
 `;
 
 const TitleContainer = styled.div`
+`;
+
+const Spacer = styled.div`
+  width: 14px;
 `;
 
 const Title = styled.h6`
@@ -22,6 +27,8 @@ function Mark(){
   return(
     <Container>
       <TitleContainer><Title>Mark</Title></TitleContainer>
+      <Spacer></Spacer>
+      <AddCircleButton />
     </Container>
   );
 }
