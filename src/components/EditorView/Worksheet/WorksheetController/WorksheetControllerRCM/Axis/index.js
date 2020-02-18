@@ -36,7 +36,6 @@ class InnerList extends Component {
     return true;
   }
   render(){
-    console.log('PROPS: ', this.props)
     return this.props.dims.map( (dim,index) => <Dim key={dim.id} dim={dim} index={index} updateData={this.props.updateData}/>);
   }
 }
