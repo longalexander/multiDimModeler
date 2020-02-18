@@ -37,7 +37,7 @@ class Dim extends Component {
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}>
             <Handle {...provided.dragHandleProps} />
-            {this.props.dim.content}
+            {this.props.dim.title}
           </Container>}
       </Draggable>
     );
