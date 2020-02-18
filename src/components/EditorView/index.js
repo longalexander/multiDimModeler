@@ -61,6 +61,7 @@ class EditorView extends Component{
   }
   render(){
     if (this.state.loaded===false) return "Loading..."
+    console.log('FAKE DATABASE: ', this.state.data)
     return(
       <Container>
         <SidebarContainer><Sidebar /></SidebarContainer>
