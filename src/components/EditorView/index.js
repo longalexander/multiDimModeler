@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Sidebar from './Sidebar'
 import Worksheet from './Worksheet'
-import initialData from '../../initial-data'
+import data from '../../data' // this is a rapid prototype: no connection to database
 
 /*
  The EditorView is shown when the user enters a Workspace.
@@ -30,13 +30,21 @@ const WorksheetContainer = styled.div`
   background-color: #ffffff;
 `;
 
-const data = initialData; // this is a rapid prototype: no connection to database
+function createData(dataType, newDataId, newData){
+  data[dataType][newDataId] = newData;
+  return;
+}
+
+function addToAxis(axis_id, dim_id){
+  data['axis'][axis_id]['dimIds'].push(dim_id);
+  return;
+}
 
 function EditorView(){
   return(
     <Container>
       <SidebarContainer><Sidebar /></SidebarContainer>
-      <WorksheetContainer><Worksheet data={data}/></WorksheetContainer>
+      <WorksheetContainer><Worksheet data={data} createData={createData} addToAxis={addToAxis}/></WorksheetContainer>
     </Container>
   );
 }
