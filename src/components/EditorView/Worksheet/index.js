@@ -14,7 +14,7 @@ function Worksheet(props){
     <Container>
       <WorksheetHeader />
       <WorksheetController data={props.data} createData={props.createData} updateData={props.updateData} addToAxis={props.addToAxis}/>
-      <WorksheetTableView />
+      <WorksheetTableView data={props.data}/>
       <WorksheetFormulaView />
     </Container>
   )
